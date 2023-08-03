@@ -4,7 +4,7 @@ from typing import List, Optional
 
 
 class Node:
-    def __init__(self, part: str, is_wild: bool, children: Optional[List[Node]] = None, pattern: str = ""):
+    def __init__(self, part: str = "", is_wild: bool = False, children: Optional[List[Node]] = None, pattern: str = ""):
         """
         :param pattern: 待匹配路由
         :param part: 路由的一部分
@@ -62,6 +62,12 @@ class Node:
                 return result
         return None
 
+
+    def travel(self, nodes: List[Node]):
+        if self.pattern != "":
+            nodes.append(self)
+        for child in self.children:
+            child.travel(nodes)
 
 
 
