@@ -73,4 +73,4 @@ Redis 没有原生支持分区能力, 如果想要使用分区, 那就需要分�
 
 ### Stream 小结
 
-Stream 的消费模型借鉴了 Kafka 的消费分组的概念, 它弥补了 Redis Pub/Sub 不能持久化消息的缺陷. 但是它有不同于 Kafka, Kafka 的消息可以分 partition, 而 Stream 不行. 如果非要 partition 的话, 得在客户端做, 提供不同的 Stream 名称, 对消息进行 hash 取模来选择往哪个 Stream 里塞
+Stream 的消费模型借鉴了 Kafka 的消费分组的概念, 它弥补了 Redis Pub/Sub 不能持久化消息的缺陷. 但是它又不同于 Kafka, Kafka 的消息可以分 partition, 而 Stream 不行. 如果非要 partition 的话, 得在客户端做, 提供不同的 Stream 名称, 对消息进行 hash 取模来选择往哪个 Stream 里塞
